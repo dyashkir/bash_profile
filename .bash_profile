@@ -15,3 +15,4 @@ export PATH=$PATH:$TODODIR
 export TODOTXT_DEFAULT_ACTION=ls
 alias t='$TODODIR/todo.sh -d $TODODIR/todo.cfg'
 
+set -o vi
