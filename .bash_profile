@@ -1,7 +1,6 @@
 
 export GREP_OPTIONS="--color"
 
-export PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] \[\e[1;37m\]'''
 export NODE_PATH="/usr/local/lib/node_modules:/Users/dyashkir/node_modules"
 
 export PATH=$PATH:/Users/dyashkir/redis/src
@@ -15,3 +14,20 @@ export PATH=$PATH:$TODODIR
 export TODOTXT_DEFAULT_ACTION=ls
 alias t='$TODODIR/todo.sh -d $TODODIR/todo.cfg'
 
+
+# {{{
+# Node Completion - Auto-generated, do not touch.
+shopt -s progcomp
+for f in $(command ls ~/.node-completion); do
+  f="$HOME/.node-completion/$f"
+  test -f "$f" && . "$f"
+done
+# }}}
+
+function parse_git_branch () {
+       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+}
+
+echo "exporting.."
+#export PS1='$(parse_git_branch)'
+export PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\]$(parse_git_branch) $'
