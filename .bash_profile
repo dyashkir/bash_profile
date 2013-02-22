@@ -1,13 +1,11 @@
 export GREP_OPTIONS="--color"
 
-export NODE_PATH="/usr/local/lib/node_modules:/Users/dyashkir/node_modules"
+export NODE_PATH="/usr/local/lib/node_modules"
 
 export PATH=$PATH:/Users/dyashkir/redis/src
 
 alias ll='ls -l -G'
 alias ls='ls -G'
-
-alias deploy='git push production;heroku ps:scale web=1'
 
 export TODODIR=/Users/dyashkir/todo.txt-cli
 export PATH=$PATH:$TODODIR
