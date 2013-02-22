@@ -33,3 +33,11 @@ set -o vi
 function svndiff() {
   svn diff "$@" | colordiff
 }
+
+#bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+
+  #bash git completion
+  . /usr/local/git/contrib/completion/git-completion.bash
+fi
