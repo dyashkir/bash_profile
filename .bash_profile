@@ -5,6 +5,7 @@ export NODE_PATH="/usr/local/lib/node_modules:/Users/dyashkir/node_modules"
 export PATH=$PATH:/Users/dyashkir/redis/src
 
 alias ll='ls -l -G'
+alias ls='ls -G'
 
 alias deploy='git push production;heroku ps:scale web=1'
 
@@ -23,10 +24,14 @@ done
 # }}}
 
 function parse_git_branch () {
-       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
 }
 
 export PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\]$(parse_git_branch) \[\e[0;32m\]$ \[\e[m\]'
 set -o vi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+function svndiff() {
+  svn diff "$@" | colordiff
+}
