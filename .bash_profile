@@ -41,3 +41,5 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   #bash git completion
   . /usr/local/git/contrib/completion/git-completion.bash
 fi
+
+source ~/./liquidprompt/liquidprompt
