@@ -43,3 +43,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 source ~/./liquidprompt/liquidprompt
+
+export HISTSIZE=1000000
+export HISTFILESIZE=1000000000
