@@ -14,11 +14,11 @@ alias t='$TODODIR/todo.sh -d $TODODIR/todo.cfg'
 
 # {{{
 # Node Completion - Auto-generated, do not touch.
-shopt -s progcomp
-for f in $(command ls ~/.node-completion); do
-  f="$HOME/.node-completion/$f"
-  test -f "$f" && . "$f"
-done
+#shopt -s progcomp
+#for f in $(command ls ~/.node-completion); do
+#  f="$HOME/.node-completion/$f"
+#  test -f "$f" && . "$f"
+#done
 # }}}
 
 function parse_git_branch () {
@@ -45,3 +45,9 @@ source ~/./liquidprompt/liquidprompt
 
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000000
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
+
+source .profile
