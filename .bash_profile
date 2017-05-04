@@ -21,14 +21,6 @@ alias t='$TODODIR/todo.sh -d $TODODIR/todo.cfg'
 #done
 # }}}
 
-function parse_git_branch () {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
-}
-
-export PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\]$(parse_git_branch) \[\e[0;32m\]$ \[\e[m\]'
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 function svndiff() {
   svn diff "$@" | colordiff
 }
@@ -41,7 +33,8 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . /usr/local/git/contrib/completion/git-completion.bash
 fi
 
-source ~/./liquidprompt/liquidprompt
+# Only load Liquid Prompt in interactive shells, not from a script or from scp
+[[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
 
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000000
@@ -51,3 +44,7 @@ export PATH=/usr/local/sbin:$PATH
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
 
 source .profile
+
+export PATH=$PATH:/Users/dyashkir/bin
+
+source '/Users/dyashkir/lib/azure-cli/az.completion'
