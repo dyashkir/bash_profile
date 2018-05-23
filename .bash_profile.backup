@@ -48,6 +48,3 @@ source .profile
 export PATH=$PATH:/Users/dyashkir/bin
 
 source '/Users/dyashkir/lib/azure-cli/az.completion'
-
-# added by Anaconda3 5.1.0 installer
-export PATH="/anaconda3/bin:$PATH"
